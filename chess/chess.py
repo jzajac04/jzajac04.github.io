@@ -18,7 +18,7 @@ soup = BeautifulSoup(r.text, 'html.parser')
 
 container = soup.find_all(id="cb-container")[1]
 
-list = container.find_all('a')[0:20]
+list = container.find_all('a')[0:30]
 
 if not os.path.isfile('index.md'):
     chat = ddgs.chat('"Value of Openings in Chess"')
@@ -27,6 +27,15 @@ if not os.path.isfile('index.md'):
         main_file.write("# Value of Openings\n\n")
         main_file.write(chat)
         main_file.write("\n\n[opening list](opening_list)")
+
+for gambit in progressbar(list):
+    name = gambit.find("h5").text
+    if not os.path.isfile(f"openings/{name.replace(' ', '_')}.md"):
+        chat = ddgs.chat(f'Tell me about chess opening "{name}"')
+        with open(f"openings/{name.replace(' ', '_')}.md", "w+") as gambit_file:
+            gambit_file.write(up)
+            gambit_file.write(f"# {name}\n\n")
+            gambit_file.write(chat)
 
 if not os.path.isfile('opening_list.md'):
     with open('opening_list.md', 'w+') as list_file:
@@ -41,7 +50,6 @@ if not os.path.isfile('opening_list.md'):
             search = ddgs.text(f'"{name}"',max_results=1)
             list_file.write(f"[{code}]: {gambit.find("img")["src"]} \n#### [{name}](openings/{name.replace(' ', '_')}):\n\n![{name}][{code}] \n\n")
             list_file.write(f"{search[0]['body']}\n\n\n")
-
 else:
     skip = 0
     with open('new_list.md', 'w+') as new, open('opening_list.md') as old:
@@ -50,32 +58,25 @@ else:
                 if line[1] == '#':
                     skip += 1
             except:
-                ()
+                pass
             new.write(line)
-        for gambit in progressbar(list[skip:-1]):
+        for gambit in progressbar(list):
+            if skip > 0:
+                skip -=1
+                continue
             name = gambit.find("h5").text
             code = name.replace(' ', '-')
             # break
             try:
-                search = ddgs.text(f'"{name}"',max_results=1)
+                search = ddgs.text(f"{name} wikipedia", max_results=1)[0]['body']
             except Exception as e:
                 shutil.move('new_list.md', 'opening_list.md')
                 raise e
             
             new.write(f"[{code}]: {gambit.find("img")["src"]} \n#### [{name}](openings/{name.replace(' ', '_')}):\n\n![{name}][{code}] \n\n")
-            new.write(f"{search[0]['body']}\n\n\n")
+            new.write(f"{search}\n\n\n")
 
     shutil.move('new_list.md', 'opening_list.md')
-                
-
-for gambit in progressbar(list):
-    name = gambit.find("h5").text
-    if not os.path.isfile(f"openings/{name.replace(' ', '_')}.md"):
-        chat = ddgs.chat(f'Tell me about chess opening "{name}"')
-        with open(f"openings/{name.replace(' ', '_')}.md", "w+") as gambit_file:
-            gambit_file.write(up)
-            gambit_file.write(f"# {name}\n\n")
-            gambit_file.write(chat)
 # print(f"Amount of fails: {fails}.")
 
 
