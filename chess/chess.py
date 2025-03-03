@@ -21,17 +21,10 @@ container = soup.find_all(id="cb-container")[1]
 list = container.find_all('a')[0:20]
 
 if not os.path.isfile('index.md'):
+    chat = ddgs.chat('"Value of Openings in Chess"')
     with open('index.md', 'w+') as main_file:
         main_file.write(up)
         main_file.write("# Value of Openings\n\n")
-        while True:
-            # try:
-                # for url in search('"Value of Openings in Chess"', stop=1):
-                #     chat = url
-                chat = ddgs.chat('"Value of Openings in Chess"')
-                break
-            # except:
-                fails += 1
         main_file.write(chat)
         main_file.write("\n\n[opening list](opening_list)")
 
@@ -48,7 +41,6 @@ if not os.path.isfile('opening_list.md'):
             search = ddgs.text(f'"{name}"',max_results=1)
             list_file.write(f"[{code}]: {gambit.find("img")["src"]} \n#### [{name}](openings/{name.replace(' ', '_')}):\n\n![{name}][{code}] \n\n")
             list_file.write(f"{search[0]['body']}\n\n\n")
-
 
 else:
     skip = 0
