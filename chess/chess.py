@@ -6,6 +6,7 @@ from progressbar import progressbar
 # from progress.bar import Bar
 import requests
 import shutil
+import time
 
 up = "---\n\n---\n"
 
@@ -18,7 +19,7 @@ soup = BeautifulSoup(r.text, 'html.parser')
 
 container = soup.find_all(id="cb-container")[1]
 
-list = container.find_all('a')[0:30]
+list = container.find_all('a')
 
 if not os.path.isfile('index.md'):
     chat = ddgs.chat('"Value of Openings in Chess"')
@@ -69,6 +70,7 @@ else:
             # break
             try:
                 search = ddgs.text(f"{name} wikipedia", max_results=1)[0]['body']
+                time.sleep(5)
             except Exception as e:
                 shutil.move('new_list.md', 'opening_list.md')
                 raise e
