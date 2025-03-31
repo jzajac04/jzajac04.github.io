@@ -1,0 +1,119 @@
+---
+layout: default
+nav:
+    -   path: /
+        text: Home
+---
+
+<header> 
+        <h1> Chess Openings </h1>
+    <link rel="stylesheet" href="style.css">
+</header>
+<article class="flex-container">
+
+
+    <table class="table-auto bg-amber-200 shadow-2xl rounded-md p-10">
+        <caption> First move in example openings </caption>
+        <tr> 
+            <th> Nr. </th>
+            <th> Opening name </th>
+            <th> First move </th>
+        </tr>
+        <tr>
+            <td> 1. </td>
+            <td> Adelaide Counter Gambit </td>
+            <td> e4 </td>
+        </tr>
+        <tr> 
+            <td> 2. </td>
+            <td> Albin Counter-Gambit </td>
+            <td> d4 </td>
+        </tr>
+    </table>
+    <ol type="I">
+        <h4> List of openings:</h4>
+        <li> Adelaide Counter Gambit 
+            <details>
+                The Adelaide Counter-Gambit is an aggressive and somewhat unconventional chess opening that arises after the following moves:<br>
+                <ol>
+                    <li>e4 e5</li>
+                    <li>Nf3 d6</li>
+                    <li>d4 Bg4</li>
+                </ol>
+
+                In this opening, Black offers a pawn sacrifice with 3...Bg4, aiming to create imbalances and generate active piece play. 
+                The idea is to lure White into capturing the pawn on d4, which can lead to a dynamic and tactical game.<br>
+
+                After 3...Bg4, White typically has a few options, including:<br>
+                <ul>
+                    <li>
+                        4. dxe5, accepting the gambit.
+                    </li>
+                    <li>4. Be2, which avoids the gambit and prepares to develop pieces.</li>
+                    <li>4. Nc3, which also supports the center.</li>
+                </ul>
+
+
+                If White accepts the gambit with 4. dxe5, Black can continue with 4...dxe5, and the game can become quite sharp, with chances for both sides.<br>
+
+                The Adelaide Counter-Gambit is not as popular as some other openings, but it can catch opponents off guard and lead to interesting positions.
+                It is particularly favored by players looking for a tactical and aggressive approach.
+            </details>
+        </li>
+        <li> Albin Counter-Gambit
+            <details>
+                The Albin Counter-Gambit is an aggressive and tactical chess opening that arises after the following moves:
+                <ol>
+                    <li>
+                        d4 d5
+                    </li>
+                    <li>
+                        c4 e5
+                    </li>
+                </ol>
+
+                In this opening, Black offers a pawn sacrifice with 2...e5, aiming to create imbalances and generate active piece play. The idea is to challenge White's center immediately and to create counterplay against White's position.
+
+                ### Key Ideas for Black:
+                - **Counterplay**: By sacrificing the pawn on e5, Black seeks to open lines for their pieces and create threats against White's position.
+                - **Development**: Black aims to develop pieces quickly, often with moves like ...Nf6 and ...c6, to support the center and prepare for further action.
+                - **Tactical Opportunities**: The Albin Counter-Gambit can lead to sharp tactical positions where both sides must be careful.
+
+                ### Main Continuations:
+                After 2...e5, White has several options, but the most common responses include:
+
+                - **3. dxe5**: Accepting the gambit. This leads to positions where Black can try to regain the pawn with active play.
+                - **3. Nf3**: Aiming to maintain the pawn structure and develop pieces, leading to a more solid game for White.
+                - **3. cxd5**: Another way to accept the gambit, leading to different types of positions.
+
+                ### Example Line:
+                1. d4 d5
+                2. c4 e5
+                3. dxe5 d4
+                4. Nf3 Nc6
+                5. g3 Bg4
+
+                In this line, Black develops pieces actively and puts pressure on White's position.
+
+                ### Conclusion:
+                The Albin Counter-Gambit is a dynamic choice for players looking to create unbalanced positions and challenge their opponents early in the game. It requires a good understanding of tactical motifs and can lead to exciting and complex middlegame positions.
+            </details>
+        </li>
+    </ol>
+    <p>
+        The opening phase of a chess game is <strong>crucial</strong> for establishing control over the center of the board.<br>
+        Controlling <em>the center</em> allows for greater mobility of pieces and can lead to more aggressive and effective strategies. 
+    </p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/ChessSet.jpg/640px-ChessSet.jpg" alt="chess">
+    <form > Survey: 
+        <label> Your name </label><br>
+        <input type="text" id="fname" name="fname"><br>
+        <label> What is your favourite chess opening? </label> <br>
+        <select id="opening" name="opening">
+            <option value="Adelaide Counter Gambit">Adelaide Counter Gambit</option>
+            <option value="Albin Counter-Gambit ">Albin Counter-Gambit</option>
+        </select>
+        <input type="button" value="Submit">
+    </form>
+</article>
+<footer> </footer>

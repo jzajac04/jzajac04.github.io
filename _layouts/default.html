@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="/html/style.css">
+  </head>
+  <body class="w-full p-4 mx-auto max-w-8xl bg-blue-200">
+    <div class="flex justify-between gap-8 px-4">
+      <div>
+        <nav class="sticky flex flex-col top-10">
+          {% for item in page.nav %}
+            <a class="text-white bg-blue-700 hover:darken focus:animate-ping focus:ring-4 focus:ring-blue-300 rounded-lg px-5 py-2.5 border shadow-xl" href="{{ item.path }}">{{ item.text }}</a>{% endfor %}
+          </nav>
+      </div>
+      
+      <div>
+        <h1 class="font-extrabold pos-center flex-none">{{ page.title }}</h1>
+        <section class="p-4 flex-col items-center">
+          {{ content }}
+        </section>
+      </div>
+      <div class="flex-none">
+        <a href="https://github.com/{{ site.github_username }}" class="text-blue-600"> by jzajac04 </a>
+      </div>
+    </div>
+  </body>
+</html>
