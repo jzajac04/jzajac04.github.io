@@ -5,7 +5,7 @@ nav:
     -   text:   HTML Examples
         path:   html
     -   text:   Chess Openings
-    #     path:   chess_openings
+        path:   chess_openings
     # -   text:   Examples/Templates
     #     path:   example
     # -   text:   Car Models
