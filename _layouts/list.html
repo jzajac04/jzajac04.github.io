@@ -2,11 +2,11 @@
 layout: default
 ---
       {% for item in page.list %}
-        <div class="flex wrap border p-3 rounded-lg shadow-xl bg-blue-100">
+        <div class="flex wrap border p-3 rounded-lg shadow-xl bg-blue-100 min-w-100">
           <img class="rounded-lg size-50" src="{{ item.img }}" alt="{{ item.title }}" />
-          <div class="p-2">
+          <div class="p-2 max-h-50 overflow-auto">
             <a  href="{{ item.path }}" class="font-extrabold text-blue-600 dark:text-blue-500 hover:underline"> {{ item.title }} </a>
-            <div class="text-gray-600">
+            <div class="text-gray-600 flex-auto">
               {{ item.text }}
             </div>
           </div>
