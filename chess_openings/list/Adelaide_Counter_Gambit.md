@@ -3,7 +3,7 @@ layout: default
 nav:
     -   path: /
         text: Home
-    -   path: /chess
+    -   path: /chess_openings
         text: Chess Openings 
     -   path: .
         text: Opening List
